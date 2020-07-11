@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_flags.c                                          :+:      :+:    :+:   */
+/*   p_flags.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 00:23:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 03:33:36 by alopez-g         ###   ########.fr       */
+/*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
+/*   Updated: 2020/07/11 03:33:33 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,15 @@
 #include "Libft/includes/libft.h"
 
 /*
-** Function: apply_s_flags
+** Function: apply_p_flags
 ** ------------------------
 ** 
 ** const char *pos: input string
 ** t_info *si:      info structure
 ** t_flags *sf:     flag structure
-** char *str:       str to print
+** int  n:          num to print
 */
-void    apply_s_flags(const char *pos, t_info *si, t_flags *sf, char *str)
+void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
 {
-    if (str == NULL && sf->prc >= 0 && sf->prc <= 6)
-        return;
-    if (str == NULL)
-        str = "(null)";
-    if (!sf->prc)
-        str = "";
-    if (sf->prc)
-        str = ft_substr(str, 0, sf->prc);
-    if (sf->neg)
-        ft_putstr_fd(str, 1);
-    space(sf->width - ft_strlen(str), sf->zero = 0, si);
-    if (!sf->neg)
-        ft_putstr_fd(str, 1);
-    si->t += ft_strlen(str);
+    write(1, "(p here)", 8);
 }

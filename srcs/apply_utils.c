@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_flags.c                                          :+:      :+:    :+:   */
+/*   apply_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 00:17:38 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 03:33:34 by alopez-g         ###   ########.fr       */
+/*   Created: 2020/07/10 19:27:39 by alopez-g          #+#    #+#             */
+/*   Updated: 2020/07/11 03:33:32 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "Libft/includes/libft.h"
 
-/*
-** Function: apply_c_flags
-** ------------------------
-** 
-** const char *pos: input string
-** t_info *si:      info structure
-** t_flags *sf:     flag structure
-** char c:          char to print
-*/
-void    apply_c_flags(const char *pos, t_info *si, t_flags *sf, int c)
+void    space(int num, int zero, t_info *si)
 {
-    if (sf->neg)
-        write(1, &c, 1);
-    space(sf->width - 1, sf->zero = 0, si);
-    if (!sf->neg)
-        write(1, &c, 1);
-    si->t += 1;
+    int     aux;
+    char    c;
+
+    if (num <= 0)
+        return;
+    aux = -1;
+    c = 32;
+    if (zero)
+        c = 48;
+    while (++aux < num)
+        si->t += write(1, &c, 1);
 }

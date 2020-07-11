@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:51:03 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/08 00:31:27 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/11 03:33:29 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,22 @@
 */
 int ft_printf(const char *in, ...)
 {
-    return (0);
+    t_flags sf;
+    t_info  si;
+
+    init_info_struct(&si);
+    va_start(si.ap, in);
+    while(*(in + si.i))
+    {
+        if (*(in + si.i) == 37)
+            process_in(in + si.i + 1, &si, &sf);
+        else
+        {
+            si.t++;
+            write(1, in + si.i, 1);
+        }
+        si.i++;
+    }
+    va_end(si.ap);
+    return (si.t);
 }

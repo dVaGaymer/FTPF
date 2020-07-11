@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/08 00:31:25 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/11 03:33:35 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** t_flags *sf:     flag structure
 ** int  n:          num to print
 */
-void    apply_d_flags()
+void    apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
 {
-
+    write(1, "(d here)", 8);
 }

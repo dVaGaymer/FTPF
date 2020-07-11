@@ -6,15 +6,16 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/08 00:29:44 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/11 03:28:12 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FTPF_DIR	=	srcs/
 LIBFT_DIR	=	srcs/Libft/
 
-SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}flag_struct_utils.c ${FTPF_DIR}ft_printf_utils.c \
-				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}s_flags.c
+SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}struct_utils.c ${FTPF_DIR}ft_printf_utils.c \
+				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c ${FTPF_DIR}x_flags.c\
+				${FTPF_DIR}apply_utils.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
 MAKE	=	make
@@ -23,16 +24,22 @@ LIBFT_A		=	${LIBFT_DIR}libft.a
 NAME		=	ft_printf.a
 
 ${NAME}:		${OBJS} ${LIBFT_A}
-				ar -rc ${NAME} ${OBJS} ${LIBFT_A}
+				make -s -C ${LIBFT_DIR}
+				cp ${LIBFT_A} ${NAME}
+				ar -rc ${NAME} ${OBJS}
 				ar -s ${NAME}
+				echo "\033[1;32mCOMPILED"
 
 ${LIBFT_A}:
 				cd ${LIBFT_DIR} && $(MAKE)
 				
 all:			${NAME}
 clean:
+				make -s -C ${LIBFT_DIR} clean
 				rm -f ${OBJS} ${OBJS_BONUS}
 fclean:			clean
+				make -s -C ${LIBFT_DIR} clean
 				rm -f ${NAME}
-re:				fclean bonus
+re:				fclean
+				make -s -C ${LIBFT_DIR} re
 .PHONY:			all clean fclean re bonus
