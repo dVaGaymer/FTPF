@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/11 03:28:12 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/11 18:10:15 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FTPF_DIR	=	srcs/
 LIBFT_DIR	=	srcs/Libft/
 
 SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}struct_utils.c ${FTPF_DIR}ft_printf_utils.c \
-				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c ${FTPF_DIR}x_flags.c\
+				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c \
 				${FTPF_DIR}apply_utils.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
@@ -40,6 +40,5 @@ clean:
 fclean:			clean
 				make -s -C ${LIBFT_DIR} clean
 				rm -f ${NAME}
-re:				fclean
-				make -s -C ${LIBFT_DIR} re
+re:				fclean all
 .PHONY:			all clean fclean re bonus

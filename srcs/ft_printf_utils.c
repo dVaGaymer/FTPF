@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 03:33:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/11 19:47:42 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void    process_in(const char *pos, t_info *si, t_flags *sf)
     else if (mod_finder(pos, si, sf) == 'd' || mod_finder(pos, si, sf) == 'i')
         apply_d_flags(pos, si, sf, ft_itoa(va_arg(si->ap, int)));
     else if (mod_finder(pos, si, sf) == 'u')
-        apply_d_flags(pos, si, sf, ft_itoa(va_arg(si->ap, unsigned int)));
+        apply_d_flags(pos, si, sf, ft_uitoa((unsigned int)va_arg(si->ap, unsigned int)));
     else if (mod_finder(pos, si, sf) == 'p')
-        apply_p_flags(pos, si, sf, ft_itoa(va_arg(si->ap, int)));
+        apply_p_flags(pos, si, sf, ft_itoab(va_arg(si->ap, size_t), "0123456789abcdef"));
     else if (mod_finder(pos, si, sf) == 'x')
-        apply_x_flags(pos, si, sf, ft_itoa(va_arg(si->ap, int)));
+        apply_d_flags(pos, si, sf, ft_itoab(va_arg(si->ap, size_t), "0123456789abcdef"));
     else if (mod_finder(pos, si, sf) == 'X')
-        apply_x_flags(pos, si, sf, ft_itoa(va_arg(si->ap, int)));
+        apply_d_flags(pos, si, sf, ft_itoab(va_arg(si->ap, size_t), "0123456789ABCDEF"));
 }
 
 /*

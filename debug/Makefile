@@ -8,7 +8,6 @@ clean:
 fclean:			clean
 				@make -s -C ../ clean
 				@rm -f a.out
-re:				fclean
-				@make -s -C ../ re
+re:				fclean all
 %.o:			%.c
 				@gcc -c $< -o $@

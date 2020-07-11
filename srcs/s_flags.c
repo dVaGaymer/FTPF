@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:23:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 03:33:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/11 18:26:01 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ void    apply_s_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     if (!sf->neg)
         ft_putstr_fd(str, 1);
     si->t += ft_strlen(str);
+    if (str)
+        free(str);
 }
