@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/12 04:13:43 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/12 19:39:40 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 ** t_info *si:      info structure
 ** t_flags *sf:     flag structure
 ** int  n:          num to print
+**
+** TODO el signo negativo importa para el width
 */
 void    apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
 {
@@ -35,10 +37,12 @@ void    apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     sf->width = sf->width > len_p ? sf->width : 0;
     sf->zero = sf->neg ? 0 : sf->zero;
     sf->zero = sf->prc != -1 ? 1 : sf->zero;
+    len_p = *str == '-' && sf->prc == -1 ? len_p - 1 : len_p;
     if (!sf->neg)
         space(sf->width - len_p, 0, si);
     write(1, "-", *str == '-' ? 1 : 0);
     space(len_p - len, 1, si);
+    *str = !sf->prc && *str == 48 ? ' ' : *str;
     ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
     if (sf->neg)
         space(sf->width - len_p, 0, si);
