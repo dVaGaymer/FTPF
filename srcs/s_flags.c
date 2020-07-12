@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:23:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 18:26:01 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/12 04:13:37 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,10 @@ void    apply_s_flags(const char *pos, t_info *si, t_flags *sf, char *str)
         str = "(null)";
     if (!sf->prc)
         str = "";
-    if (sf->prc)
-        str = ft_substr(str, 0, sf->prc);
     if (sf->neg)
-        ft_putstr_fd(str, 1);
+        write(1, str, sf->prc != -1 ? sf->prc : ft_strlen(str));
     space(sf->width - ft_strlen(str), sf->zero = 0, si);
     if (!sf->neg)
-        ft_putstr_fd(str, 1);
-    si->t += ft_strlen(str);
-    if (str)
-        free(str);
+        write(1, str, sf->prc != -1 ? sf->prc : ft_strlen(str));
+    si->t += sf->prc != -1 ? sf->prc : ft_strlen(str);
 }

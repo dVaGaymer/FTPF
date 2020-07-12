@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/11 18:10:15 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/12 02:27:29 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ ${NAME}:		${OBJS} ${LIBFT_A}
 				cp ${LIBFT_A} ${NAME}
 				ar -rc ${NAME} ${OBJS}
 				ar -s ${NAME}
-				echo "\033[1;32mCOMPILED"
+				echo "\033[1;32mCOMPILED\033[0m"
 
 ${LIBFT_A}:
 				cd ${LIBFT_DIR} && $(MAKE)

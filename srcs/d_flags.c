@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 19:21:48 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/12 04:13:43 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void    apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     if (sf->neg)
         space(sf->width - len_p, 0, si);
     si->t += len + (*str == '-' ? 1 : 0);
+    if (str)
+        free(str);
 }

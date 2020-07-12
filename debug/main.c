@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 17:06:14 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 18:20:25 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/12 04:13:45 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int argc, char **argv)
     int     n0 = 0;
     int     n1 = 0;
     char    test = 'a';
+    
     if (argc > 1)
         test = **(argv + 1);
 
@@ -58,6 +59,16 @@ int main(int argc, char **argv)
     {
         printf("\033[1;33m---------- s ----------\033[0m\n");
 
+        n0 = ft_printf(  "VERGA s |%s|\n", 0);
+        n1 = printf(     "BUENO s |%s|\n", 0);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        printf("\n\n");
+
+        n0 = ft_printf(  "VERGA s | %.s|\n", "(null)");
+        n1 = printf(     "BUENO s | %.s|\n", "(null)");
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        printf("\n\n");
+
         n0 = ft_printf(  "VERGA s | %50s|\n", "verga santa");
         n1 = printf(     "BUENO s | %50s|\n", "verga santa");
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
@@ -93,11 +104,6 @@ int main(int argc, char **argv)
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         printf("\n\n");
 
-        n0 = ft_printf(  "VERGA s | %s|\n", 0);
-        n1 = printf(     "BUENO s | %s|\n", 0);
-        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
-        printf("\n\n");
-
         n0 = ft_printf(  "VERGA s | %.5s|\n", 0);
         n1 = printf(     "BUENO s | %.5s|\n", 0);
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
@@ -110,6 +116,11 @@ int main(int argc, char **argv)
 
         n0 = ft_printf(  "VERGA s | %.s|\n", "(null)");
         n1 = printf(     "BUENO s | %.s|\n", "(null)");
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        printf("\n\n");
+
+        n0 = ft_printf(  "VERGA s | %.6s|\n", "HOLA QUE PASA");
+        n1 = printf(     "BUENO s | %.6s|\n", "HOLA QUE PASA");
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         printf("\n\n");
     }

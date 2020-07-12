@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 19:50:33 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/12 04:13:32 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     if (*str == 48 && sf->prc >= 0 && sf->prc <= 6)
         return;
     if (*str == 48)
-        str = "(nil)";
+    {
+        if (str)
+            free(str);
+        str = ft_strdup("(nil)");
+    }
     len = ft_strlen(str) + (*str == '(' ? 0 : 2);
     sf->prc = sf->prc != 0 && sf->prc != -1 ? sf->prc + 2: sf->prc;
     len_p = sf->prc > len ? sf->prc : len;
@@ -46,6 +50,6 @@ void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     if (sf->neg)
         space(sf->width - len_p, 0, si);
     si->t += len;
-    if (str && *str != '(')
+    if (str)
         free(str);
 }
