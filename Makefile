@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/12 02:27:29 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/13 20:52:26 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 MAKE	=	make
 
 LIBFT_A		=	${LIBFT_DIR}libft.a
-NAME		=	ft_printf.a
+NAME		=	libftprintf.a
 
 ${NAME}:		${OBJS} ${LIBFT_A}
 				make -s -C ${LIBFT_DIR}

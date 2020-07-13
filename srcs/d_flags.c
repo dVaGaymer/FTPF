@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/13 20:27:15 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/13 21:17:36 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void    apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     len_total = sf->prc > ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
     len_str = len_total == 0 || len_total == -1 ? ft_strlen(str) : len_total;
     len_total = sf->width > len_total ? sf->width : len_total;
-    if (sf->zero)
+    if (sf->zero && sf->prc == -1)
         len_str = len_total;
     if (!sf->neg)
         space(len_total - len_str, 0, si);
@@ -47,4 +47,5 @@ void    apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     if (sf->neg)
         space(len_total - len_str, 0, si);
     si->t += ft_strlen(str);
+    //printf("_%d_%d_", len_str, len_total);
 }
