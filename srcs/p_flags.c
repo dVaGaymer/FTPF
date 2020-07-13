@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/12 16:03:34 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/13 22:27:57 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,28 @@
 */
 void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
 {
+    int len_str;
+    int len_total;
+    int neg;
     int len;
-    int len_p;
 
-    if (*str == 48 && sf->prc >= 0 && sf->prc <= 6)
-        return;
-    if (*str == 48)
-    {
-        if (str)
-            free(str);
-        str = ft_strdup("(nil)");
-    }
-    len = ft_strlen(str) + (*str == '(' ? 0 : 2);
-    sf->prc = sf->prc != 0 && sf->prc != -1 ? sf->prc + 2: sf->prc;
-    len_p = sf->prc > len ? sf->prc : len;
-    len_p = sf->zero && sf->width && sf->width > len_p ? sf->width : len_p;
-    sf->width = sf->width > len_p ? sf->width : 0;
-    sf->zero = sf->neg ? 0 : sf->zero;
-    sf->zero = sf->prc != -1 ? 1 : sf->zero;
+    sf->width -= 2;
+    len = *str == '-' ? ft_strlen(str + 1) : ft_strlen(str);
+    neg = *str == '-' ? 1 : 0;
+    len_total = sf->prc > ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
+    len_str = len_total == 0 || len_total == -1 ? ft_strlen(str) : len_total;
+    len_total = sf->width > len_total ? sf->width : len_total;
+    if (sf->zero && sf->prc == -1)
+        len_str = len_total;
     if (!sf->neg)
-        space(sf->width - len_p, 0, si);
-    write(1, "0x", *str == '(' ? 0 : 2);
-    space(len_p - len, 1, si);
-    ft_putstr_fd(str, 1);
+        space(len_total - len_str, 0, si);
+    write(1, "-", *str == '-' ? 1 : 0);
+    write(1, "0x", 2);
+    space(len_str - ft_strlen(str), 1, si);
+    *str = !sf->prc && *str == 48 ? ' ' : *str;
+    *str = !sf->prc && *str == 32 && sf->width == 0 ? 0 : *str;
+    ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
     if (sf->neg)
-        space(sf->width - len_p, 0, si);
-    si->t += len;
-    if (str)
-        free(str);
+        space(len_total - len_str, 0, si);
+    si->t += ft_strlen(str) + 2;
 }

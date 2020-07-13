@@ -8,7 +8,7 @@ clean:
 				@make -s -C ../ clean
 				@rm -f main.o
 fclean:			clean
-				@make -s -C ../ clean
+				@make -s -C ../ fclean
 				@rm -f a.out
 				@rm -f ${LIB}
 re:				fclean all

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 17:06:14 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/13 21:34:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/13 22:18:41 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -712,12 +712,6 @@ int main(int argc, char **argv)
         error = n0 == n1 ? error : error + 1;
         printf("\n\n");
 
-    	n1 =    printf(	  "BUENO: _HOLA_%12p_HOLA\n", 789);
-	    n0 =    ft_printf( "VERGA: _HOLA_%12p_HOLA\n", 789);
-    	printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
-        error = n0 == n1 ? error : error + 1;
-        printf("\n\n");
-
     	n1 =    printf(	  "BUENO: _HOLA_%.28p_HOLA\n", p);
     	n0 =    ft_printf( "VERGA: _HOLA_%.28p_HOLA\n", p);
     	printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
@@ -913,6 +907,29 @@ int main(int argc, char **argv)
         n0 = ft_printf(  "VERGA p | %.15p|\n", test);
         n1 = printf(     "BUENO p | %.15p|\n", test);
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        n0 = ft_printf(  "VERGA p | %.5p|\n", 0);
+        n1 = printf(     "BUENO p | %.5p|\n", 0);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        n1 =    printf(	  "BUENO: _HOLA_%12p_HOLA\n", 789);
+	    n0 =    ft_printf( "VERGA: _HOLA_%12p_HOLA\n", 789);
+    	printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        n0 = ft_printf(  "VERGA p | %020p|\n", 12);
+        n1 = printf(     "BUENO p | %020p|\n", 12);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+        n1 =    printf(	  "BUENO: _HOLA_%.12p_HOLA\n", 789);
+	    n0 =    ft_printf( "VERGA: _HOLA_%.12p_HOLA\n", 789);
+    	printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         error = n0 == n1 ? error : error + 1;
         printf("\n\n");
     }
