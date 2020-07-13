@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 17:06:14 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/13 20:58:00 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/13 21:34:16 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -557,6 +557,34 @@ int main(int argc, char **argv)
         //failed
         n0 =    ft_printf( "VERGA: _HOLA_%08.5d_HOLA\n",  34);
         n1 =    printf(	  "BUENO: _HOLA_%08.5d_HOLA\n",   34);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        //failed
+        n0 =    ft_printf( "VERGA: _HOLA_%.0d_HOLA\n",  0);
+        n1 =    printf(	  "BUENO: _HOLA_%.0d_HOLA\n",   0);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        //failed
+        n0 =    ft_printf( "VERGA: _HOLA_%0.d_HOLA\n",  0);
+        n1 =    printf(	  "BUENO: _HOLA_%0.d_HOLA\n",   0);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        //failed
+        n0 =    ft_printf( "VERGA: _HOLA_%.d_HOLA\n",  0);
+        n1 =    printf(	  "BUENO: _HOLA_%.d_HOLA\n",   0);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        //failed
+        n0 =    ft_printf( "VERGA: _HOLA_%5.d_HOLA\n",  0);
+        n1 =    printf(	  "BUENO: _HOLA_%5.d_HOLA\n",   0);
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         error = n0 == n1 ? error : error + 1;
         printf("\n\n");
