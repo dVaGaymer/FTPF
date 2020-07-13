@@ -8,6 +8,7 @@ clean:
 fclean:			clean
 				@make -s -C ../ clean
 				@rm -f a.out
+				@rm -f ft_printf.a
 re:				fclean all
 %.o:			%.c
 				@gcc -c $< -o $@
