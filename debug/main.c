@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 17:06:14 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/15 20:08:19 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 01:51:54 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -938,8 +938,15 @@ int main(int argc, char **argv)
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         error = n0 == n1 ? error : error + 1;
         printf("\n\n");
+
         n1 =    printf(	  "BUENO: _HOLA_%.12p_HOLA\n", 789);
 	    n0 =    ft_printf( "VERGA: _HOLA_%.12p_HOLA\n", 789);
+    	printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+
+        n1 =    printf(	  "BUENO: _HOLA_%05%_HOLA\n");
+	    n0 =    ft_printf( "VERGA: _HOLA_%05%_HOLA\n");
     	printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         error = n0 == n1 ? error : error + 1;
         printf("\n\n");

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 01:25:26 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 01:49:49 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ void    process_in(const char *pos, t_info *si, t_flags *sf)
         apply_d_flags(pos, si, sf, ft_itoab(va_arg(si->ap, size_t), "0123456789ABCDEF"));
     else if (mod == '%')
     {
-        write(1, "%%", 1);
-        si->t++;
+        apply_perc(pos, si, sf);
+        // write(1, "%%", 1);
+        // si->t++;
     }
 }
 
