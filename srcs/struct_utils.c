@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/12 04:13:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:08:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void    init_info_struct(t_info *si)
 {
     si->i = 0;
     si->t = 0;
-    si->flags = "-0.*123456789";
-    si->mods = "cspdiuxX";
+    si->modsep = 0;
+    si->flags = "-0.*123456789 ";
+    si->mods = "cspdiuxX%%";
 }

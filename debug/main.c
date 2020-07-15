@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 17:06:14 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/13 22:18:41 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:08:19 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ int main(int argc, char **argv)
     
     if (argc > 1)
         test = **(argv + 1);
+
+    //----- no mod pf -----
+    if (test == 'm')
+    {
+        printf("\033[1;33m---------- NO MOD PF ----------\033[0m\n");
+        n1 =    printf(         "BUENO: _HOLA_%%%%% - 5 d_HOLA\n", 10);
+        n0 =		ft_printf(  "VERGA: _HOLA_%%%%% - 5 d_HOLA\n", 10);
+        printf(n0 == n1 ? "\033[0;32mOK\033[0m": "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
+        error = n0 == n1 ? error : error + 1;
+        printf("\n\n");
+    }
 
     //----- c -----
     if (test == 'c' || test == 'a')

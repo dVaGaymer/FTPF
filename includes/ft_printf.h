@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:49:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/11 03:33:29 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:08:23 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct  s_info
     int     t;
     char    *flags;
     char    *mods;
+    char    modsep;
     va_list ap;
 }               t_info;
 void    process_in(const char *pos, t_info *si, t_flags *sf);
