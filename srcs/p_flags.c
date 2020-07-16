@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 02:38:50 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 02:51:09 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     int neg;
     int len;
 
-    sf->width = *str == 48 ? sf->width - 1 : sf->width - 2;
+    sf->width = *str == 48 && !sf->prc? sf->width - 1 : sf->width - 2;
     len = *str == '-' ? ft_strlen(str + 1) : ft_strlen(str);
     neg = *str == '-' ? 1 : 0;
     len_total = sf->prc > ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
