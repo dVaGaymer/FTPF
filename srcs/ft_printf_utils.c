@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 04:12:55 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 04:32:06 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void    process_in(const char *pos, t_info *si, t_flags *sf)
     else if (mod == '%')
     {
         apply_perc(pos, si, sf);
-        write(1, "%%", 1);
-        si->t++;
+        //write(1, "%%", 1);
+        //si->t++;
     }
 }
 
