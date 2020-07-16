@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 01:49:49 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 04:12:55 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void    process_in(const char *pos, t_info *si, t_flags *sf)
 
     mod = mod_finder(pos, si, sf);
     init_flags_struct(sf);
-    check_flag_struct(pos, si, sf);
+    if (mod)
+        check_flag_struct(pos, si, sf);
     if (mod == 'c')
         apply_c_flags(pos, si, sf, va_arg(si->ap, int));
     else if (mod == 's')
@@ -46,8 +47,8 @@ void    process_in(const char *pos, t_info *si, t_flags *sf)
     else if (mod == '%')
     {
         apply_perc(pos, si, sf);
-        // write(1, "%%", 1);
-        // si->t++;
+        write(1, "%%", 1);
+        si->t++;
     }
 }
 
@@ -67,7 +68,7 @@ char    mod_finder(const char *pos, t_info *si, t_flags *sf)
     int aux;
 
     aux = 0;
-    while (ft_strchr(si->flags, *(pos + aux)))
+    while (ft_strchr(si->flags, *(pos + aux)) && *(pos + aux) != 0)
     {
         if (*(pos + aux) == 32)
             si->modsep = 1;
@@ -75,7 +76,7 @@ char    mod_finder(const char *pos, t_info *si, t_flags *sf)
     }
     write(1, " ", si->modsep);
     si->t = si->modsep ? si->t + 1 : si->t;
-    if (ft_strchr(si->mods, *(pos + aux)))
+    if (ft_strchr(si->mods, *(pos + aux)) && *(pos + aux) != 0)
         return (*(pos + aux));
     return (0);
 }

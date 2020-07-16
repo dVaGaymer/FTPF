@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:51:03 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/15 20:08:24 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 04:12:52 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int ft_printf(const char *in, ...)
             si.t++;
             write(1, in + si.i, 1);
         }
-        si.i++;
+        if (*(in + si.i) != 0)
+            si.i++;
     }
     va_end(si.ap);
     return (si.t);
