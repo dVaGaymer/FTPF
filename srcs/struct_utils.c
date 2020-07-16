@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/15 20:08:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 03:14:05 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void    check_flag_struct(const char *pos, t_info *si, t_flags *sf)
         sf->width = -sf->width;
         sf->neg = 1;
     }
+    if (sf->prc < -1)
+        sf->prc = -1;
     si->i = aux ? si->i + aux + 1: si->i + 1;
     if (sf->neg && sf->zero)
             sf->zero = 0;
