@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 03:05:01 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 03:37:48 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     si->t += ft_strlen(str) + 2;
     if (*str == 48 && !sf->prc)
         si->t -= 1;
+    if (str)
+        free(str);
 }
 
 void    apply_perc(const char *pos, t_info *si, t_flags *sf)
