@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 02:27:04 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 02:30:02 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ void    apply_perc(const char *pos, t_info *si, t_flags *sf)
     write(1, "%%", 1);
     if (sf->neg)
         space(sf->width - 1, 0, si);
+    si->t++;
 }
