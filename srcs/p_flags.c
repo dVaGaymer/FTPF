@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 03:00:32 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/16 03:05:01 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,13 @@ void    apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
     write(1, "-", *str == '-' ? 1 : 0);
     write(1, "0x", 2);
     space(len_str - ft_strlen(str), 1, si);
-    *str = !sf->prc && *str == 48 ? ' ' : *str;
-    if (!(!sf->prc && *str == 32))
+    if (!(!sf->prc && *str == 48))
         ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
     if (sf->neg)
         space(len_total - len_str, 0, si);
     si->t += ft_strlen(str) + 2;
     if (*str == 48 && !sf->prc)
-        si->t--;
+        si->t -= 1;
 }
 
 void    apply_perc(const char *pos, t_info *si, t_flags *sf)
