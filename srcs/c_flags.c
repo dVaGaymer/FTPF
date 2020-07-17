@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:17:38 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/15 20:08:24 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/17 15:09:28 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@
 /*
 ** Function: apply_c_flags
 ** ------------------------
-** 
+**
 ** const char *pos: input string
 ** t_info *si:      info structure
 ** t_flags *sf:     flag structure
 ** char c:          char to print
 */
-void    apply_c_flags(const char *pos, t_info *si, t_flags *sf, int c)
+
+void	apply_c_flags(const char *pos, t_info *si, t_flags *sf, int c)
 {
-    if (sf->neg)
-        write(1, &c, 1);
-    space(sf->width - 1, sf->zero = 0, si);
-    if (!sf->neg)
-        write(1, &c, 1);
-    si->t += 1;
+	if (sf->neg)
+		write(1, &c, 1);
+	space(sf->width - 1, sf->zero = 0, si);
+	if (!sf->neg)
+		write(1, &c, 1);
+	si->t += 1;
 }

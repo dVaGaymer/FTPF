@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/13 20:52:26 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/17 15:56:08 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ clean:
 				make -s -C ${LIBFT_DIR} clean
 				rm -f ${OBJS} ${OBJS_BONUS}
 fclean:			clean
-				make -s -C ${LIBFT_DIR} clean
+				make -s -C ${LIBFT_DIR} fclean
 				rm -f ${NAME}
 re:				fclean all
 .PHONY:			all clean fclean re bonus

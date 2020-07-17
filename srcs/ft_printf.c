@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:51:03 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/16 04:12:52 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/17 15:12:36 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,32 @@
 ** Function: ft_printf
 ** ----------------------------
 ** Original printf copy
-** 
+**
 ** const char *in:  input string to be formated and printed
 ** ...              length-undetermined list of arguments to print with format
 **
 ** returns:         number of chars printed
 */
-int ft_printf(const char *in, ...)
-{
-    t_flags sf;
-    t_info  si;
 
-    init_info_struct(&si);
-    va_start(si.ap, in);
-    while(*(in + si.i))
-    {
-        if (*(in + si.i) == 37)
-            process_in(in + si.i + 1, &si, &sf);
-        else
-        {
-            si.t++;
-            write(1, in + si.i, 1);
-        }
-        if (*(in + si.i) != 0)
-            si.i++;
-    }
-    va_end(si.ap);
-    return (si.t);
+int	ft_printf(const char *in, ...)
+{
+	t_flags	sf;
+	t_info	si;
+
+	init_info_struct(&si);
+	va_start(si.ap, in);
+	while (*(in + si.i))
+	{
+		if (*(in + si.i) == 37)
+			process_in(in + si.i + 1, &si, &sf);
+		else
+		{
+			si.t++;
+			write(1, in + si.i, 1);
+		}
+		if (*(in + si.i) != 0)
+			si.i++;
+	}
+	va_end(si.ap);
+	return (si.t);
 }
