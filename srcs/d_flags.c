@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:11:20 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 03:44:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
 
 	len = *str == '-' ? ft_strlen(str + 1) : ft_strlen(str);
 	neg = *str == '-' ? 1 : 0;
+	sf->width = *str != '-'  && sf->sep ? sf->width - 1 : sf->width;
 	len_total = sf->prc > ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
 	len_str = len_total == 0 || len_total == -1 ? ft_strlen(str) : len_total;
 	len_total = sf->width > len_total ? sf->width : len_total;
@@ -42,12 +43,13 @@ void	apply_d_flags(const char *pos, t_info *si, t_flags *sf, char *str)
 	if (!sf->neg)
 		space(len_total - len_str, 0, si);
 	write(1, "-", *str == '-' ? 1 : 0);
+	ft_putchar_fd(*str != '-' ? sf->sep : 0, 1);
 	space(len_str - ft_strlen(str), 1, si);
 	*str = !sf->prc && *str == 48 && sf->width == 0 ? 0 : *str;
 	ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
 	if (sf->neg)
 		space(len_total - len_str, 0, si);
-	si->t += ft_strlen(str);
+	si->t += ft_strlen(str) + (*str != '-'  && sf->sep ? 1 : 0);
 	if (str)
 		free(str);
 }
