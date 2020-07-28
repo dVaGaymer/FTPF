@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 17:23:07 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 19:57:15 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	u_flags(t_info *si, t_flags *sf, char *str)
 	ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
 	if (sf->neg)
 		space(lt - ls, 0, si);
-	si->t += ft_strlen(str) + (*str != '-' && sf->sep ? 1 : 0);
+	si->t += ft_strlen(str);
 	if (str)
 		free(str);
 }
