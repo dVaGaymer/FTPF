@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:17:32 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 16:02:59 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:53:02 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 static int	base_digits(long n, int bs_cnt, char *base)
 {
-	char	dig;
 	int		aux;
 
 	aux = 0;
@@ -104,7 +103,6 @@ char		*ft_itoab(size_t n, char *base)
 	size_t	base_cnt;
 	int		valid;
 	char	*str;
-	int		aux;
 
 	valid = 1;
 	base_cnt = 0;

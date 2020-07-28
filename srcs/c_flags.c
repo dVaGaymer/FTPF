@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:17:38 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 03:14:17 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:53:33 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** char c:          char to print
 */
 
-void	apply_c_flags(const char *pos, t_info *si, t_flags *sf, int c)
+void	apply_c_flags(t_info *si, t_flags *sf, int c)
 {
 	if (sf->neg)
 		write(1, &c, 1);

@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:49:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:43:45 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:53:39 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,18 @@ typedef struct	s_info
 	va_list		ap;
 }				t_info;
 void			process_in(const char *pos, t_info *si, t_flags *sf);
-char			mod_finder(const char *pos, t_info *si, t_flags *sf);
+char			mod_finder(const char *pos, t_info *si);
 void			check_flag_struct(const char *pos, t_info *si, t_flags *sf);
 void			init_info_struct(t_info *si);
 void			init_flags_struct(t_flags *sf);
-void			apply_c_flags(const char *pos,
-					t_info *si, t_flags *sf, int c);
-void			apply_s_flags(const char *pos,
-					t_info *si, t_flags *sf, char *str);
-void			apply_d_flags(const char *pos,
-					t_info *si, t_flags *sf, char *str);
-void			apply_u_flags(const char *pos,
-					t_info *si, t_flags *sf, char *str);
+void			apply_c_flags(t_info *si, t_flags *sf, int c);
+void			apply_s_flags(t_info *si, t_flags *sf, char *str);
+void			apply_d_flags(t_info *si, t_flags *sf, char *str);
+void			apply_u_flags(t_info *si, t_flags *sf, char *str);
 void			apply_p_flags(t_info *si, t_flags *sf, char *str);
 void			apply_perc(const char *pos,
 					t_info *si, t_flags *sf);
-void			apply_x_flags(const char *pos,
-					t_info *si, t_flags *sf, char *str);
+void			apply_x_flags(t_info *si, t_flags *sf, char *str);
 void			space(int num, int zero, t_info *si);
 
 #endif
