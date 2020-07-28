@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 17:48:02 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 17:52:51 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	X_flags(t_info *si, t_flags *sf, char *str)
 
 	len = *str == '-' ? ft_strlen(str + 1) : ft_strlen(str);
 	neg = *str == '-' ? 1 : 0;
+	sf->width = sf->sh ? sf->width - 2 : sf->width;
 	sf->width = *str != '-' && sf->sep ? sf->width - 1 : sf->width;
 	lt = sf->prc > (int)ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
 	ls = lt == 0 || lt == -1 ? ft_strlen(str) : lt;
