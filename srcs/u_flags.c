@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:51:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:56:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,27 @@
 
 void	apply_u_flags(t_info *si, t_flags *sf, char *str)
 {
-	int len_str;
-	int len_total;
+	int ls;
+	int lt;
 	int neg;
 	int len;
 
 	len = *str == '-' ? ft_strlen(str + 1) : ft_strlen(str);
 	neg = *str == '-' ? 1 : 0;
-	len_total = sf->prc > ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
-	len_str = len_total == 0 || len_total == -1 ? ft_strlen(str) : len_total;
-	len_total = sf->width > len_total ? sf->width : len_total;
+	lt = sf->prc > (int)ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
+	ls = lt == 0 || lt == -1 ? ft_strlen(str) : lt;
+	lt = sf->width > lt ? sf->width : lt;
 	if (sf->zero && sf->prc == -1)
-		len_str = len_total;
+		ls = lt;
 	if (!sf->neg)
-		space(len_total - len_str, 0, si);
+		space(lt - ls, 0, si);
 	write(1, "-", *str == '-' ? 1 : 0);
-	space(len_str - ft_strlen(str), 1, si);
+	space(ls - ft_strlen(str), 1, si);
 	*str = !sf->prc && *str == 48 ? ' ' : *str;
 	*str = !sf->prc && *str == 32 && sf->width == 0 ? 0 : *str;
 	ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
 	if (sf->neg)
-		space(len_total - len_str, 0, si);
+		space(lt - ls, 0, si);
 	si->t += ft_strlen(str) + (*str != '-'  && sf->sep ? 1 : 0);
 	if (str)
 		free(str);

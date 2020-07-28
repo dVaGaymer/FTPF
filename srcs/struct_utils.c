@@ -6,14 +6,14 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 03:51:38 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:56:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "Libft/includes/libft.h"
 
-static void	adjust_flags(t_info *si, t_flags *sf)
+static void	adjust_flags(t_flags *sf)
 {
 	if (sf->width < 0)
 	{
@@ -61,7 +61,7 @@ void		check_flag_struct(const char *pos, t_info *si, t_flags *sf)
 		else if ((*(pos + aux) == 32 && sf->sep == 0) || *(pos + aux) == '+')
 			sf->sep = sf->sep == 0 && *(pos + aux) == 32 ? 32 : '+';
 	}
-	adjust_flags(si, sf);
+	adjust_flags(sf);
 	si->i = aux ? si->i + aux + 1 : si->i + 1;
 }
 

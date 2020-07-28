@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:23:44 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:50:43 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 05:02:55 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	apply_s_flags(t_info *si, t_flags *sf, char *str)
 
 	if (str == NULL)
 		str = "(null)";
-	final_s_len = sf->prc != -1 && sf->prc < ft_strlen(str) ? sf->prc
+	final_s_len = sf->prc != -1 && sf->prc < (int)ft_strlen(str) ? sf->prc
 		: ft_strlen(str);
 	final_t_len = sf->width > final_s_len ? sf->width : final_s_len;
 	if (sf->neg)

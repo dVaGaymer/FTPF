@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:17:32 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:53:02 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:58:58 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ char		*ft_itoab(size_t n, char *base)
 	int		valid;
 	char	*str;
 
+	str = NULL;
 	valid = 1;
 	base_cnt = 0;
 	while (*(base + base_cnt) != '\0')

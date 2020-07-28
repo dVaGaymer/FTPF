@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:49:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:53:39 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 05:03:40 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ void			apply_s_flags(t_info *si, t_flags *sf, char *str);
 void			apply_d_flags(t_info *si, t_flags *sf, char *str);
 void			apply_u_flags(t_info *si, t_flags *sf, char *str);
 void			apply_p_flags(t_info *si, t_flags *sf, char *str);
-void			apply_perc(const char *pos,
-					t_info *si, t_flags *sf);
+void			apply_perc(t_info *si, t_flags *sf);
 void			apply_x_flags(t_info *si, t_flags *sf, char *str);
 void			space(int num, int zero, t_info *si);
 
