@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_flags.c                                          :+:      :+:    :+:   */
+/*   x_flags.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 17:08:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 17:08:12 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Libft/includes/libft.h"
 
 /*
-** Function: apply_p_flags
+** Function: apply_x_flags
 ** ------------------------
 **
 ** const char *pos: input string
@@ -23,41 +23,32 @@
 ** int  n:          num to print
 */
 
-void	p_flags(t_info *si, t_flags *sf, char *str)
+void	x_flags(t_info *si, t_flags *sf, char *str)
 {
 	int ls;
 	int lt;
 	int neg;
 	int len;
 
-	sf->width = *str == 48 && !sf->prc ? sf->width - 1 : sf->width - 2;
 	len = *str == '-' ? ft_strlen(str + 1) : ft_strlen(str);
 	neg = *str == '-' ? 1 : 0;
+	sf->width = *str != '-'  && sf->sep ? sf->width - 1 : sf->width;
 	lt = sf->prc > (int)ft_strlen(str) - neg ? sf->prc + neg : ft_strlen(str);
 	ls = lt == 0 || lt == -1 ? ft_strlen(str) : lt;
 	lt = sf->width > lt ? sf->width : lt;
-	ls = (sf->zero && sf->prc == -1) ? lt : ls;
-	if (!sf->neg)
-		space(lt - ls, 0, si);
+	if (sf->zero && sf->prc == -1)
+		ls = lt;
+	space(!sf->neg ? lt - ls : 0, 0, si);
 	write(1, "-", *str == '-' ? 1 : 0);
-	write(1, "0x", 2);
+	write(1, &sf->sep, *str != '-' && sf->sep ? 1 : 0);
 	space(ls - ft_strlen(str), 1, si);
-	if (!(!sf->prc && *str == 48))
-		ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
-	if (sf->neg)
-		space(lt - ls, 0, si);
-	si->t += ft_strlen(str) + 2;
-	si->t = *str == 48 && !sf->prc ? si->t - 1 : si->t;
+	*str = !sf->prc && *str == 48 ? ' ' : *str;
+	*str = !sf->prc && *str == 32 && sf->width == 0 ? 0 : *str;
+	write(1, "0x", sf->sh && *str != 48 ? 2 : 0);
+	si->t = sf->sh ?  si->t + 2 : si->t;
+	ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
+	space(sf->neg ? lt - ls : 0, 0, si);
+	si->t += ft_strlen(str) + (*str != '-'  && sf->sep ? 1 : 0);
 	if (str)
 		free(str);
-}
-
-void	apply_perc(t_info *si, t_flags *sf)
-{
-	if (!sf->neg)
-		space(sf->width - 1, sf->zero, si);
-	write(1, "%%", 1);
-	if (sf->neg)
-		space(sf->width - 1, 0, si);
-	si->t++;
 }

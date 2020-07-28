@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:20:11 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:56:46 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 16:47:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 ** TODO el signo negativo importa para el width
 */
 
-void	apply_u_flags(t_info *si, t_flags *sf, char *str)
+void	u_flags(t_info *si, t_flags *sf, char *str)
 {
 	int ls;
 	int lt;

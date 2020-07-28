@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 06:40:38 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 17:06:15 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,32 @@ static void	adjust_flags(t_flags *sf)
 
 void		check_flag_struct(const char *pos, t_info *si, t_flags *sf)
 {
-	int aux;
+	int i;
 
-	aux = -1;
-	while (ft_strchr(si->flags, *(pos + ++aux)))
+	i = -1;
+	while (ft_strchr(si->flags, *(pos + ++i)))
 	{
-		if (!(sf->width) && sf->prc == -1 && *(pos + aux) == 42)
+		if (!(sf->width) && sf->prc == -1 && *(pos + i) == 42)
 			sf->width = va_arg(si->ap, int);
-		else if (sf->prc == -1 && *(pos + aux) == *(si->flags + 2)
-		&& *(pos + aux + 1) == 42)
+		else if (sf->prc == -1 && *(pos + i) == *(si->flags + 2)
+		&& *(pos + i + 1) == 42)
 			sf->prc = va_arg(si->ap, int);
-		if ((!(sf->width) && *(pos + aux) > 48 && *(pos + aux) <= 57
+		if ((!(sf->width) && *(pos + i) > 48 && *(pos + i) <= 57
 		&& sf->prc == -1))
-			sf->width = ft_atoi(pos + aux);
-		else if (*(pos + aux) == *(si->flags))
-			sf->neg = 1;
-		else if (*(pos + aux) == *(si->flags + 1) && !(sf->width))
+			sf->width = ft_atoi(pos + i);
+		else if (*(pos + i) == *(si->flags + 1) && !(sf->width))
 			sf->zero = 1;
-		else if (sf->prc == -1 && *(pos + aux) == *(si->flags + 2)
-		&& (*(pos + aux + 1) != '-'))
-			sf->prc = (*(pos + aux + 1) >= 48 && *(pos + aux) <= 57)
-			? ft_atoi(pos + aux + 1) : -2;
-		else if ((*(pos + aux) == 32 && sf->sep == 0) || *(pos + aux) == '+')
-			sf->sep = sf->sep == 0 && *(pos + aux) == 32 ? 32 : '+';
+		else if (sf->prc == -1 && *(pos + i) == *(si->flags + 2)
+		&& (*(pos + i + 1) != '-'))
+			sf->prc = (*(pos + i + 1) >= 48 && *(pos + i) <= 57)
+			? ft_atoi(pos + i + 1) : -2;
+		else if ((*(pos + i) == 32 && sf->sep == 0) || *(pos + i) == '+')
+			sf->sep = sf->sep == 0 && *(pos + i) == 32 ? 32 : '+';
+		sf->neg = *(pos + i) == *(si->flags) ? 1 : sf->neg;
+		sf->sh = *(pos + i) == '#' ? 1 : sf->sh;
 	}
 	adjust_flags(sf);
-	si->i = aux ? si->i + aux + 1 : si->i + 1;
+	si->i = i ? si->i + i + 1 : si->i + 1;
 }
 
 /*
@@ -82,6 +82,7 @@ void		init_flags_struct(t_flags *sf)
 	sf->width = 0;
 	sf->zero = 0;
 	sf->sep = 0;
+	sf->sh = 0;
 }
 
 /*
@@ -96,7 +97,6 @@ void		init_info_struct(t_info *si)
 {
 	si->i = 0;
 	si->t = 0;
-	si->modsep = 0;
-	si->flags = "-0.*123456789 +";
+	si->flags = "-0.*123456789 +#";
 	si->mods = "cspdiuxX%%";
 }
