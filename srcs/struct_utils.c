@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 05:31:29 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:56:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void		check_flag_struct(const char *pos, t_info *si, t_flags *sf)
 	aux = -1;
 	while (ft_strchr(si->flags, *(pos + ++aux)))
 	{
-		if (sf->prc == -1 && *(pos + aux) == *(si->flags + 2)
+		if (!(sf->width) && sf->prc == -1 && *(pos + aux) == 42)
+			sf->width = va_arg(si->ap, int);
+		else if (sf->prc == -1 && *(pos + aux) == *(si->flags + 2)
 		&& *(pos + aux + 1) == 42)
 			sf->prc = va_arg(si->ap, int);
-		if (((!(sf->width) && *(pos + aux) > 48 && *(pos + aux) <= 57
-		&& sf->prc == -1)) || (sf->prc == -1 && *(pos + aux - 1) == 42))
+		if ((!(sf->width) && *(pos + aux) > 48 && *(pos + aux) <= 57
+		&& sf->prc == -1))
 			sf->width = ft_atoi(pos + aux);
-		else if (!(sf->width) && sf->prc == -1 && *(pos + aux) == 42)
-			sf->width = va_arg(si->ap, int);
 		else if (*(pos + aux) == *(si->flags))
 			sf->neg = 1;
 		else if (*(pos + aux) == *(si->flags + 1) && !(sf->width))
