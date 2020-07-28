@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 17:21:51 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 17:36:49 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void	x_flags(t_info *si, t_flags *sf, char *str)
 	space(!sf->neg ? lt - ls : 0, 0, si);
 	write(1, "-", *str == '-' ? 1 : 0);
 	write(1, &sf->sep, *str != '-' && sf->sep ? 1 : 0);
+	write(1, "0x", sf->sh && *str != 48 ? 2 : 0);
 	space(ls - ft_strlen(str), 1, si);
 	*str = !sf->prc && *str == 48 ? ' ' : *str;
 	*str = !sf->prc && *str == 32 && sf->width == 0 ? 0 : *str;
-	write(1, "0x", sf->sh && *str != 48 ? 2 : 0);
 	si->t = sf->sh ? si->t + 2 : si->t;
 	ft_putstr_fd(*str == '-' ? str + 1 : str, 1);
 	space(sf->neg ? lt - ls : 0, 0, si);
