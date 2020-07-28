@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/17 15:56:08 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/28 03:49:06 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ FTPF_DIR	=	srcs/
 LIBFT_DIR	=	srcs/Libft/
 
 SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}struct_utils.c ${FTPF_DIR}ft_printf_utils.c \
-				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c \
+				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}u_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c \
 				${FTPF_DIR}apply_utils.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
