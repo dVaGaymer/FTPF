@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:42:10 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 03:51:38 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void		check_flag_struct(const char *pos, t_info *si, t_flags *sf)
 		else if (sf->prc == -1 && *(pos + aux) == *(si->flags + 2))
 			sf->prc = (*(pos + aux + 1) >= 48 && *(pos + aux) <= 57)
 			? ft_atoi(pos + aux + 1) : 0;
+		else if ((*(pos + aux) == 32 && sf->sep == 0) || *(pos + aux) == '+')
+			sf->sep = sf->sep == 0 && *(pos + aux) == 32 ? 32 : '+';
 	}
 	adjust_flags(si, sf);
 	si->i = aux ? si->i + aux + 1 : si->i + 1;
@@ -78,6 +80,7 @@ void		init_flags_struct(t_flags *sf)
 	sf->ptr = 0;
 	sf->width = 0;
 	sf->zero = 0;
+	sf->sep = 0;
 }
 
 /*
@@ -93,6 +96,6 @@ void		init_info_struct(t_info *si)
 	si->i = 0;
 	si->t = 0;
 	si->modsep = 0;
-	si->flags = "-0.*123456789 ";
+	si->flags = "-0.*123456789 +";
 	si->mods = "cspdiuxX%%";
 }
