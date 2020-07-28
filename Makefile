@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/28 17:41:26 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/28 17:47:03 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT_INC	=	srcs/Libft/includes/
 
 SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}struct_utils.c ${FTPF_DIR}ft_printf_utils.c \
 				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}u_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c \
-				${FTPF_DIR}apply_utils.c ${FTPF_DIR}x_flags.c ${FTPF_DIR}X_flags.c
+				${FTPF_DIR}apply_utils.c ${FTPF_DIR}x_flags.c ${FTPF_DIR}x_mayus_flags.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
 MAKE	=	make
