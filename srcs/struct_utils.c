@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 17:22:16 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 17:28:27 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,19 @@ void		check_flag_struct(const char *pos, t_info *si, t_flags *sf)
 	{
 		if (!(sf->width) && sf->prc == -1 && *(pos + i) == 42)
 			sf->width = va_arg(si->ap, int);
-		else if (sf->prc == -1 && *(pos + i) == *(si->flags + 2)
-		&& *(pos + i + 1) == 42)
+		else if (sf->prc == -1 && *(pos + i) == '.' && *(pos + i + 1) == 42)
 			sf->prc = va_arg(si->ap, int);
 		if ((!(sf->width) && *(pos + i) > 48 && *(pos + i) <= 57
 		&& sf->prc == -1))
 			sf->width = ft_atoi(pos + i);
-		else if (*(pos + i) == *(si->flags + 1) && !(sf->width))
+		else if (*(pos + i) == '0' && !(sf->width))
 			sf->zero = 1;
-		else if (sf->prc == -1 && *(pos + i) == *(si->flags + 2)
-		&& (*(pos + i + 1) != '-'))
+		else if (sf->prc == -1 && *(pos + i) == '.' && (*(pos + i + 1) != '-'))
 			sf->prc = (*(pos + i + 1) >= 48 && *(pos + i) <= 57)
 			? ft_atoi(pos + i + 1) : -2;
 		else if ((*(pos + i) == 32 && sf->sep == 0) || *(pos + i) == '+')
 			sf->sep = sf->sep == 0 && *(pos + i) == 32 ? 32 : '+';
-		sf->neg = *(pos + i) == *(si->flags) ? 1 : sf->neg;
+		sf->neg = *(pos + i) == '-' ? 1 : sf->neg;
 		sf->sh = *(pos + i) == '#' ? 1 : sf->sh;
 	}
 	adjust_flags(sf);
