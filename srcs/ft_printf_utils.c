@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:33:43 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 03:47:27 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	process_in(const char *pos, t_info *si, t_flags *sf)
 	else if (mod == 'd' || mod == 'i')
 		apply_d_flags(pos, si, sf, ft_itoa(va_arg(si->ap, int)));
 	else if (mod == 'u')
-		apply_d_flags(pos, si, sf,
+		apply_u_flags(pos, si, sf,
 		ft_uitoa((unsigned int)va_arg(si->ap, unsigned int)));
 	else if (mod == 'p')
 		apply_p_flags(pos, si, sf,
@@ -68,13 +68,7 @@ char	mod_finder(const char *pos, t_info *si, t_flags *sf)
 
 	aux = 0;
 	while (ft_strchr(si->flags, *(pos + aux)) && *(pos + aux) != 0)
-	{
-		if (*(pos + aux) == 32)
-			si->modsep = 1;
 		aux++;
-	}
-	write(1, " ", si->modsep);
-	si->t = si->modsep ? si->t + 1 : si->t;
 	if (ft_strchr(si->mods, *(pos + aux)) && *(pos + aux) != 0)
 		return (*(pos + aux));
 	return (0);
