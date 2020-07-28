@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 17:06:14 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 05:58:49 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 06:40:19 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main(int argc, char **argv)
     if (test == 'm')
     {
         //failed
-        n0 =    ft_printf( "VERGA: _HOLA_%.-6i_HOLA\n", -3);
-        n1 =    printf(	  "BUENO: _HOLA_%.-6i_HOLA\n", -3);
+        n0 =    ft_printf( "VERGA: _HOLA_%.*s_HOLA\n", -1, 0);
+        n1 =    printf(	  "BUENO: _HOLA_%.*s_HOLA\n", -1, 0);
         printf(n0 == n1 ? "\033[0;32mOK\033[0m" : "\033[0;31mKO: V:%d B:%d\033[0m", n0, n1);
         error = n0 == n1 ? error : error + 1;
         printf("\n\n");

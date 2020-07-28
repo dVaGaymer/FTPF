@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 06:08:19 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 06:40:38 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		check_flag_struct(const char *pos, t_info *si, t_flags *sf)
 		else if (sf->prc == -1 && *(pos + aux) == *(si->flags + 2)
 		&& (*(pos + aux + 1) != '-'))
 			sf->prc = (*(pos + aux + 1) >= 48 && *(pos + aux) <= 57)
-			? ft_atoi(pos + aux + 1) : 0;
+			? ft_atoi(pos + aux + 1) : -2;
 		else if ((*(pos + aux) == 32 && sf->sep == 0) || *(pos + aux) == '+')
 			sf->sep = sf->sep == 0 && *(pos + aux) == 32 ? 32 : '+';
 	}
