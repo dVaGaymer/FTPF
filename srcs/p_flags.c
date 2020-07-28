@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:47:30 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:43:47 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** int  n:          num to print
 */
 
-void	apply_p_flags(const char *pos, t_info *si, t_flags *sf, char *str)
+void	apply_p_flags(t_info *si, t_flags *sf, char *str)
 {
 	int len_str;
 	int len_total;

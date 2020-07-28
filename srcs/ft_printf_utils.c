@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 03:47:27 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:43:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	process_in(const char *pos, t_info *si, t_flags *sf)
 		apply_u_flags(pos, si, sf,
 		ft_uitoa((unsigned int)va_arg(si->ap, unsigned int)));
 	else if (mod == 'p')
-		apply_p_flags(pos, si, sf,
+		apply_p_flags(si, sf,
 		ft_itoab(va_arg(si->ap, size_t), "0123456789abcdef"));
 	else if (mod == 'x' || mod == 'X')
 		apply_d_flags(pos, si, sf, ft_itoab(va_arg(si->ap, size_t),
