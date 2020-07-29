@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:17:32 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 04:58:58 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/29 03:15:07 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ static char	*to_base(size_t n, int bs_cnt, char *base)
 	aux = 0;
 	num = n;
 	len = base_digits(num, bs_cnt, base) + 1;
-	str = (char *)malloc(sizeof(char) * len + 1);
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
+		return (-1);
 	*(str + len) = '\0';
 	while (aux < len)
 	{
