@@ -6,7 +6,7 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:05:23 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 19:54:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/31 16:11:10 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ void	process_in(const char *pos, t_info *si, t_flags *sf)
 	else if (mod == 'u')
 		u_flags(si, sf, ft_uitoa((unsigned int)va_arg(si->ap, unsigned int)));
 	else if (mod == 'p')
-		p_flags(si, sf, ft_itoab(va_arg(si->ap, size_t), "0123456789abcdef"));
+		p_flags(si, sf,
+				ft_ultoab(va_arg(si->ap, unsigned long), "0123456789abcdef"));
 	else if (mod == 'x' || mod == 'X')
-		x_flags(si, sf, ft_itoab(va_arg(si->ap, size_t), 
+		x_flags(si, sf, ft_uitoab(va_arg(si->ap, unsigned int),
 		mod == 'x' ? "0123456789abcdef" : "0123456789ABCDEF"));
 	else if (mod == '%')
 		apply_perc(si, sf);

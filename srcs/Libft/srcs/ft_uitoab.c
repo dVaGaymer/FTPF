@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoab.c                                         :+:      :+:    :+:   */
+/*   ft_uitoab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:17:32 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/29 03:15:07 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/07/31 15:46:30 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../includes/libft.h"
 
-static int	base_digits(long n, int bs_cnt, char *base)
+static int	base_digits(unsigned int n, int bs_cnt, char *base)
 {
-	int		aux;
+	int				aux;
+	unsigned int	b;
 
+	b = (unsigned int)bs_cnt;
 	aux = 0;
-	if (n >= bs_cnt)
-		aux = base_digits(n / bs_cnt, bs_cnt, base) + 1;
+	if (n >= b)
+		aux = base_digits(n / b, b, base) + 1;
 	return (aux);
 }
 
@@ -64,9 +66,9 @@ static int	check_repeated(char *tab, int cnt)
 ** returns:         strings with decimal number in base base
 */
 
-static char	*to_base(size_t n, int bs_cnt, char *base)
+static char	*to_base(unsigned int n, int bs_cnt, char *base)
 {
-	long	num;
+	int		num;
 	char	*str;
 	int		len;
 	int		aux;
@@ -76,7 +78,7 @@ static char	*to_base(size_t n, int bs_cnt, char *base)
 	num = n;
 	len = base_digits(num, bs_cnt, base) + 1;
 	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
-		return (-1);
+		return (0);
 	*(str + len) = '\0';
 	while (aux < len)
 	{
@@ -99,9 +101,9 @@ static char	*to_base(size_t n, int bs_cnt, char *base)
 ** returns:         strings with decimal number in base base
 */
 
-char		*ft_itoab(size_t n, char *base)
+char		*ft_uitoab(unsigned int n, char *base)
 {
-	size_t	base_cnt;
+	int		base_cnt;
 	int		valid;
 	char	*str;
 

@@ -6,7 +6,7 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/07/28 17:48:13 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/07/29 14:00:20 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,30 +21,25 @@ SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}struct_utils.c ${FTPF_DIR}ft_printf_ut
 				${FTPF_DIR}apply_utils.c ${FTPF_DIR}x_flags.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
-MAKE	=	make
-
 LIBFT_A		=	${LIBFT_DIR}libft.a
 NAME		=	libftprintf.a
 
 %.o : %.c
 				clang -Wall -Werror -Wextra -I $(FTPF_INC) -I $(LIBFT_INC) -c $< -o $@
 
-${NAME}:		${OBJS} ${LIBFT_A}
-				make -s -C ${LIBFT_DIR}
+${NAME}:		${OBJS}
+				make -C ${LIBFT_DIR}
 				cp ${LIBFT_A} ${NAME}
 				ar -rc ${NAME} ${OBJS}
 				ar -s ${NAME}
-				echo "\033[1;32mCOMPILED\033[0m"
-
-${LIBFT_A}:
-				cd ${LIBFT_DIR} && $(MAKE)
 				
 all:			${NAME}
+bonus:			all
 clean:
-				make -s -C ${LIBFT_DIR} clean
+				make -C ${LIBFT_DIR} clean
 				rm -f ${OBJS} ${OBJS_BONUS}
 fclean:			clean
-				make -s -C ${LIBFT_DIR} fclean
+				rm -f ${LIBFT_A}
 				rm -f ${NAME}
 re:				fclean all
 .PHONY:			all clean fclean re bonus
