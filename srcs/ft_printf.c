@@ -6,12 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:51:03 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:12:36 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/08/09 21:58:55 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "Libft/includes/libft.h"
+#include <libft.h>
 
 /*
 ** Function: ft_printf

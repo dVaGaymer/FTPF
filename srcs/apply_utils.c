@@ -6,12 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 19:27:39 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/17 15:18:26 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/08/09 21:58:08 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "Libft/includes/libft.h"
+#include <libft.h>
 
 void	space(int num, int zero, t_info *si)
 {

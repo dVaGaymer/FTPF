@@ -6,12 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 03:22:53 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 19:58:09 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/08/09 21:57:59 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "Libft/includes/libft.h"
+#include <libft.h>
 
 /*
 ** Function: apply_x_flags

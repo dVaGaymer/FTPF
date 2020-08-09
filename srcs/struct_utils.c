@@ -6,12 +6,12 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 23:56:45 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/07/28 19:56:51 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/08/09 21:58:57 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "Libft/includes/libft.h"
+#include <libft.h>
 
 static void	adjust_flags(t_flags *sf)
 {
