@@ -6,11 +6,11 @@
 /*   By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 00:17:38 by alopez-g          #+#    #+#             */
-/*   Updated: 2020/08/09 22:01:13 by alopez-g         ###   ########.fr       */
+/*   Updated: 2020/08/09 23:32:46 by alopez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include <ft_printf.h>
 
 /*
 ** Function: apply_c_flags
