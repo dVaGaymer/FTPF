@@ -6,12 +6,15 @@
 #    By: alopez-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/07 17:46:30 by alopez-g          #+#    #+#              #
-#    Updated: 2020/08/09 23:32:06 by alopez-g         ###   ########.fr        #
+#    Updated: 2020/08/10 00:12:50 by alopez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FTPF_DIR	=	srcs/
 LIBFT_DIR	=	srcs/Libft/
+ifneq "${VAR_LIBFT_DIR}" ""
+LIBFT_DIR 	=	${VAR_LIBFT_DIR}
+endif
 
 FTPF_INC	=	includes/
 LIBFT_INC	=	srcs/Libft/includes/
