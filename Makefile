@@ -13,9 +13,10 @@
 FTPF_INC	=	includes/
 LIBFT_INC	=	${LIBFT_DIR}includes/
 
-SRCS		=	${FTPF_DIR}ft_printf.c ${FTPF_DIR}struct_utils.c ${FTPF_DIR}ft_printf_utils.c \
-				${FTPF_DIR}c_flags.c ${FTPF_DIR}d_flags.c ${FTPF_DIR}u_flags.c ${FTPF_DIR}s_flags.c ${FTPF_DIR}p_flags.c \
-				${FTPF_DIR}apply_utils.c ${FTPF_DIR}x_flags.c
+SRCS_DIR	=	${FTPD_DIR}srcs/
+SRCS		=	${SRCS_DIR}ft_printf.c ${SRCS_DIR}struct_utils.c ${SRCS_DIR}ft_printf_utils.c \
+			${SRCS_DIR}c_flags.c ${SRCS_DIR}d_flags.c ${SRCS_DIR}u_flags.c ${SRCS_DIR}s_flags.c ${SRCS_DIR}p_flags.c \
+			${SRCS_DIR}apply_utils.c ${SRCS_DIR}x_flags.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
 LIBFT_A		=	${LIBFT_DIR}libft.a
