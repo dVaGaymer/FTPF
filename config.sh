@@ -1,5 +1,6 @@
 FTPF_DIR=./
 export FTPF_DIR
 
-LIBFT_DIR=srcs/Libft/
+#Absolute path to Libft here:
+LIBFT_DIR=/Users/dvagaymer/Documents/FTPF/srcs/Libft 
 export LIBFT_DIR
