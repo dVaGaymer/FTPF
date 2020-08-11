@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-FTPF_INC	=	includes/
+FTPF_INC	=	${FTPF_DIR}includes/
 LIBFT_INC	=	${LIBFT_DIR}includes/
 
 SRCS_DIR	=	${FTPF_DIR}srcs/
