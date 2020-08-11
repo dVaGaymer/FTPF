@@ -10,12 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-FTPF_DIR	=	srcs/
-LIBFT_DIR	=	srcs/Libft/
-ifneq "${VAR_LIBFT_DIR}" ""
-LIBFT_DIR 	=	${VAR_LIBFT_DIR}
-endif
-
 FTPF_INC	=	includes/
 LIBFT_INC	=	${LIBFT_DIR}includes/
 
