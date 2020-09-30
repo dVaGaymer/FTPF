@@ -19,25 +19,20 @@ SRCS		=	${SRCS_DIR}ft_printf.c ${SRCS_DIR}struct_utils.c ${SRCS_DIR}ft_printf_ut
 			${SRCS_DIR}apply_utils.c ${SRCS_DIR}x_flags.c
 OBJS		= 	$(patsubst %.c, %.o, ${SRCS})
 
-LIBFT_A		=	${LIBFT_DIR}libft.a
 NAME		=	libftprintf.a
 
 %.o : %.c
 				clang -Wall -Werror -Wextra -I $(FTPF_INC) -I $(LIBFT_INC) -c $< -o $@
 
 ${NAME}:		${OBJS}
-				make -C ${LIBFT_DIR}
-				cp ${LIBFT_A} ${NAME}
 				ar -rc ${NAME} ${OBJS}
 				ar -s ${NAME}
 				
 all:			${NAME}
 bonus:			all
 clean:
-				make -C ${LIBFT_DIR} clean
 				rm -f ${OBJS} ${OBJS_BONUS}
 fclean:			clean
-				rm -f ${LIBFT_A}
 				rm -f ${NAME}
 re:				fclean all
 .PHONY:			all clean fclean re bonus
